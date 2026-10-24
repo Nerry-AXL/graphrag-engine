@@ -1,0 +1,12 @@
+{
+  "name": "aura-test",
+  "version": "1.0.0",
+  "description": "Feasibility test for Neo4j Aura Free HTTP API",
+  "main": "simulate-aura.js",
+  "scripts": {
+    "test": "node simulate-aura.js > results.txt 2>&1 && cat results.txt"
+  },
+  "keywords": ["neo4j", "aura", "graphrag", "http-api"],
+  "author": "",
+  "license": "MIT"
+}

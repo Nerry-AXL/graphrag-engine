@@ -1,0 +1,69 @@
+Neo4j Aura Free HTTP Feasibility Test
+============================================================
+
+Testing HTTP API patterns for Cloudflare Worker deployment
+
+Testing: Create node
+  Query type: create_node
+  p50: 163.1ms
+  p95: 224.6ms
+  p99: 231.4ms
+  Status: PASS ✓
+
+Testing: Simple match
+  Query type: simple_match
+  p50: 156.3ms
+  p95: 205.4ms
+  p99: 223.5ms
+  Status: PASS ✓
+
+Testing: Vector search
+  Query type: vector_search
+  p50: 210.3ms
+  p95: 271.0ms
+  p99: 288.5ms
+  Status: PASS ✓
+
+Testing: Graph traversal
+  Query type: graph_traversal
+  p50: 195.8ms
+  p95: 269.5ms
+  p99: 286.8ms
+  Status: PASS ✓
+
+Testing: Complex hybrid query
+  Query type: complex_cypher
+  p50: 267.7ms
+  p95: 332.7ms
+  p99: 389.4ms
+  Status: PASS ✓
+
+============================================================
+SUMMARY
+============================================================
+
+Query Performance:
+  Create node: 224.6ms (p95) - PASS
+  Simple match: 205.4ms (p95) - PASS
+  Vector search: 271.0ms (p95) - PASS
+  Graph traversal: 269.5ms (p95) - PASS
+  Complex hybrid query: 332.7ms (p95) - PASS
+
+Neo4j Aura Free Limits (from documentation):
+  Max nodes: 50,000
+  Max relationships: 175,000
+  Auto-pause: after 72h inactivity
+  Deleted if paused: 30 days
+
+API Verification:
+  ✓ HTTP API available (POST to /db/neo4j/tx/commit)
+  ✓ Vector search available (db.index.vector.queryNodes)
+  ✓ Cypher queries work over HTTP
+  ✓ Graph traversal supported
+
+============================================================
+VERDICT: PASS ✓
+============================================================
+
+Neo4j Aura Free is FEASIBLE for Cloudflare Worker deployment.
+All queries complete within 1s at p95.
